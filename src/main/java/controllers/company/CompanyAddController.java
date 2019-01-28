@@ -30,19 +30,17 @@ public class CompanyAddController extends AbstractCompanyController {
         Company company = new Company();
         company.setName(name);
         company.setCity(city);
-        company.setDevelopers(developers);
-        company.setProjects(projects);
         CrudRepository<Company, Long> companyRepository = companies();
         companyRepository.createDao(company);
 
-//        for (Developer developer : developers){
-//            developer.setCompany(getLast());
-//            developers().updateDao(developer);
-//        }
-//        for (Project project : projects){
-//            project.setCompany(company);
-//            projects().updateDao(project);
-//        }
+        for (Developer developer : developers){
+            developer.setCompany(getLast());
+            developers().updateDao(developer);
+        }
+        for (Project project : projects){
+            project.setCompany(company);
+            projects().updateDao(project);
+        }
         response.sendRedirect("/companies");
     }
 }

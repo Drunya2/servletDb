@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="domain.Company" %>
+<%@ page import="domain.Developer" %>
+<%@ page import="domain.Project" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -36,6 +38,28 @@
         <div class="w3-container w3-padding w3-light-grey w3-margin">
             <h3>Город: </h3>
             <input class="w3-input" name="companyCity" value="<%=company.getCity()%>"/>
+        </div>
+
+        <div class="w3-container w3-light-grey w3-margin w3-padding">
+            <h3>ID проектов (через пробел): </h3>
+            <%String idProjects = "";
+            for (Project project : company.getProjects()){
+                idProjects+= project.getId() + " ";
+            }
+            %>
+            <input type="hidden" name="companyProjectsToDelete" value="<%=idProjects%>">
+            <input class="w3-input" name="companyProjects" value="<%=idProjects%>">
+        </div>
+
+        <div class="w3-container w3-light-grey w3-margin w3-padding">
+            <h3>ID разработчиков (через пробел): </h3>
+            <%String idDevelopers = "";
+                for (Developer developer : company.getDevelopers()){
+                    idDevelopers+= developer.getId() + " ";
+                }
+            %>
+            <input type="hidden" name="companyDevelopersToDelete" value="<%=idDevelopers%>">
+            <input class="w3-input" name="companyDevelopers" value="<%=idDevelopers%>">
         </div>
 
         <div class="w3-container">

@@ -7,6 +7,7 @@
 --%>
 
 <%@ page import="domain.Customer" %>
+<%@ page import="domain.Project" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -37,6 +38,17 @@
         <div class="w3-container w3-padding w3-light-grey w3-margin">
             <h3>Страна: </h3>
             <input class="w3-input" name="customerCountry" value="<%=customer.getCountry()%>"/>
+        </div>
+
+        <div class="w3-container w3-light-grey w3-margin w3-padding">
+            <h3>ID проектов (через пробел): </h3>
+            <%String projectsId = "";
+            for (Project project : customer.getProjects()){
+                projectsId += project.getId() + " ";
+            }
+            %>
+            <input type="hidden" name="customerProjectsToDelete" value="<%=projectsId%>">
+            <input class="w3-input" name="customerProjects" value="<%=projectsId%>">
         </div>
 
         <div class="w3-container">

@@ -40,7 +40,9 @@
         if (developers.isEmpty()) out.print("<p> Разработчиков нет </p>");
         else{
             for (Developer developer : developers){
-                out.print("<p> • " + developer.getName() + " " + developer.getSurname() +" </p>");
+                out.print("<a href=\"/developer_info?id=" + developer.getId() +"\">• "  + developer.getName() +
+                         " " + developer.getSurname() + "</a>");
+                out.print("</br>");
             }
         }
     %>
@@ -52,7 +54,8 @@
         if (projects.isEmpty()) out.print("<p> Проектов нет </p>");
         else{
             for (Project project : projects){
-                out.print("<p> • " + project.getProjectName() + "</p>");
+                out.print("<a href=\"/project_info?id=" + project.getId() +"\">• "  + project.getProjectName() + "</a>");
+                out.print("</br>");
             }
         }
     %>

@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="domain.Developer" %>
+<%@ page import="domain.Project" %>
+<%@ page import="domain.Skill" %>
 
 <html>
 <head>
@@ -43,6 +45,26 @@
         <div class="w3-container w3-light-grey w3-margin w3-padding">
             <h3>Зарплата:</h3>
             <input class="w3-input" type="number" name="developerSalary" value="<%=developer.getSalary()%>">
+        </div>
+
+        <div class="w3-container w3-light-grey w3-margin w3-padding">
+            <h3>ID проектов (через пробел): </h3>
+            <%String idProjects = "";
+            for (Project project : developer.getProjects()){
+                idProjects += project.getId() + " ";
+            }%>
+            <input type="hidden" name="developerProjectsToDelete" value="<%=idProjects%>">
+            <input class="w3-input" name="developerProjects" value="<%=idProjects%>">
+        </div>
+
+        <div class="w3-container w3-light-grey w3-margin w3-padding">
+            <h3>ID навыков (через пробел): </h3>
+            <%String idSkills = "";
+                for (Skill skill : developer.getSkills()){
+                    idSkills += skill.getId() + " ";
+                }%>
+            <input type="hidden" name="developerSkillsToDelete" value="<%=idSkills%>">
+            <input class="w3-input" name="developerSkills" value="<%=idSkills%>">
         </div>
 
         <div class="w3-container">

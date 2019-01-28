@@ -37,7 +37,7 @@
             out.print("</br>");
         }
     %>
-
+</br>
     <%
         Customer customer = project.getCustomer();
         if (customer == null) out.print("<p>Заказчик: Отсутствует</p>");

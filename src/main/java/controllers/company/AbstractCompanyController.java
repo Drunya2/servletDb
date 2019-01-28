@@ -60,10 +60,11 @@ public class AbstractCompanyController extends Controller {
         String[] projects = parameter.split(" ");
         Set<Project> projectsSet = new HashSet<>();
         for (String id : projects) {
-            long idProject = Long.parseLong(id);
-            if (containsProject(idProject)) projectsSet.add(getProjectById(idProject));
+            if (!id.equals("")) {
+                long idProject = Long.parseLong(id);
+                if (containsProject(idProject)) projectsSet.add(getProjectById(idProject));
+            }
         }
-
         return projectsSet;
     }
 
@@ -81,8 +82,10 @@ public class AbstractCompanyController extends Controller {
         String[] developers = parameter.split(" ");
         Set<Developer> developersSet = new HashSet<>();
         for (String id : developers) {
-            long idDeveloper = Long.parseLong(id);
-            if (containsDeveloper(idDeveloper)) developersSet.add(getDeveloperById(idDeveloper));
+            if (!id.equals("")) {
+                long idDeveloper = Long.parseLong(id);
+                if (containsDeveloper(idDeveloper)) developersSet.add(getDeveloperById(idDeveloper));
+            }
         }
 
         return developersSet;

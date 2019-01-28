@@ -41,8 +41,8 @@
         if (projects.isEmpty()) out.print("<p> Проектов нет </p>");
         else{
             for (Project project : projects){
-                out.print("<p> • " + project.getProjectName() + "</p>");
-            }
+                out.print("<a href=\"/project_info?id=" + project.getId() +"\">• "  + project.getProjectName() + "</a>");
+                out.print("</br>");            }
         }
     %>
 </div>

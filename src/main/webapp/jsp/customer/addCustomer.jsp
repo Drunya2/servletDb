@@ -34,6 +34,11 @@
             <input class="w3-input" name = "customerCountry" value="">
         </div>
 
+        <div class="w3-container w3-light-grey w3-margin w3-padding">
+            <h3>ID проектов (через пробел): </h3>
+            <input class="w3-input" name="customerProjects" value="">
+        </div>
+
         <div class="w3-container">
             <input type="submit" class="w3-button w3-green w3-right w3-large" value="Добавить заказчика"/>
         </div>
