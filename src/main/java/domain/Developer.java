@@ -18,7 +18,7 @@ import java.util.Set;
 @Setter
 @ToString
 //@EqualsAndHashCode(exclude = "projects, skills, company")
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = {"company", "skills", "projects"})
 public class Developer {
     @Id
     @Column(name = "ID")
@@ -52,7 +52,7 @@ public class Developer {
     @LazyCollection(LazyCollectionOption.FALSE)
     Set<Skill> skills;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "company_id")
     @Fetch(FetchMode.SELECT)
     @LazyCollection(LazyCollectionOption.FALSE)

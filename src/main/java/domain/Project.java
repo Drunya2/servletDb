@@ -16,7 +16,6 @@ import java.util.Set;
 @Table(name = "Project")
 @Getter
 @Setter
-@ToString(exclude = {"developers"})
 @EqualsAndHashCode(exclude = {"developers", "company", "customer"})
 public class Project {
     @Id
@@ -37,7 +36,7 @@ public class Project {
     @LazyCollection(LazyCollectionOption.FALSE)
     Set<Developer> developers;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "company_id")
     @Fetch(FetchMode.SELECT)
     private Company company;
